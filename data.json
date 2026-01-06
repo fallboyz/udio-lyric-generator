@@ -1,0 +1,452 @@
+{
+    "tags": {
+        "구조적 태그 (Song Structure)": [
+            {
+                "label": "Intro",
+                "tag": "[intro]",
+                "desc": "도입부"
+            },
+            {
+                "label": "Verse",
+                "tag": "[verse]",
+                "desc": "일반적인 절"
+            },
+            {
+                "label": "Verse (Variation)",
+                "tag": "[verse 1]",
+                "desc": "절 구분 (숫자 가능)"
+            },
+            {
+                "label": "Pre-chorus",
+                "tag": "[pre-chorus]",
+                "desc": "후렴 전 빌드업"
+            },
+            {
+                "label": "Chorus",
+                "tag": "[chorus]",
+                "desc": "메인 후렴"
+            },
+            {
+                "label": "Refrain",
+                "tag": "[Refrain]",
+                "desc": "반복되는 짧은 구절"
+            },
+            {
+                "label": "Bridge",
+                "tag": "[bridge]",
+                "desc": "전환 구간"
+            },
+            {
+                "label": "Outro",
+                "tag": "[outro]",
+                "desc": "종결부"
+            },
+            {
+                "label": "Hook",
+                "tag": "[hook]",
+                "desc": "귓가를 사로잡는 반복구"
+            }
+        ],
+        "보컬 제어 (Vocal Style)": [
+            {
+                "label": "Female Vocal",
+                "tag": "[female vocal]",
+                "desc": "여성 보컬 지정"
+            },
+            {
+                "label": "Male Vocal",
+                "tag": "[male vocal]",
+                "desc": "남성 보컬 지정"
+            },
+            {
+                "label": "Duet",
+                "tag": "[duet]",
+                "desc": "남녀/2인 듀엣"
+            },
+            {
+                "label": "Spoken World",
+                "tag": "[spoken]",
+                "desc": "나레이션 스타일"
+            },
+            {
+                "label": "Whisper",
+                "tag": "[whisper]",
+                "desc": "속삭이는 소리"
+            },
+            {
+                "label": "Vocal Fry",
+                "tag": "[vocal fry]",
+                "desc": "탁하고 거친 목소리"
+            },
+            {
+                "label": "Scream/Growl",
+                "tag": "[scream]",
+                "desc": "샤우팅 또는 그로울링"
+            },
+            {
+                "label": "Emotional",
+                "tag": "[emotional]",
+                "desc": "강한 감정 실린 보컬"
+            },
+            {
+                "label": "Melismatic",
+                "tag": "[melismatic]",
+                "desc": "화려한 꺾기/R&B 창법"
+            },
+            {
+                "label": "Rap/Flow",
+                "tag": "[rap]",
+                "desc": "랩 스타일"
+            },
+            {
+                "label": "Choir",
+                "tag": "[choir]",
+                "desc": "합창단 효과"
+            },
+            {
+                "label": "Backing Vocals",
+                "tag": "[backing vocals]",
+                "desc": "배경 코러스"
+            }
+        ],
+        "연주 및 효과 (Inst/FX)": [
+            {
+                "label": "Guitar Solo",
+                "tag": "[guitar solo]",
+                "desc": "전기/어쿠스틱 기타 솔로"
+            },
+            {
+                "label": "Drum Fill",
+                "tag": "[drum fill]",
+                "desc": "드럼 필인"
+            },
+            {
+                "label": "Bass Solo",
+                "tag": "[bass solo]",
+                "desc": "베이스 독주"
+            },
+            {
+                "label": "Piano Interlude",
+                "tag": "[piano interlude]",
+                "desc": "피아노 간주"
+            },
+            {
+                "label": "Saxophone Breakdown",
+                "tag": "[saxophone breakdown]",
+                "desc": "색소폰 위주 구간"
+            },
+            {
+                "label": "Acapella",
+                "tag": "[acapella]",
+                "desc": "악기 없이 목소리만"
+            },
+            {
+                "label": "Instrumental Break",
+                "tag": "[instrumental break]",
+                "desc": "긴 악기 연주 구간"
+            },
+            {
+                "label": "Drop",
+                "tag": "[drop]",
+                "desc": "EDM/힙합의 강렬한 하강"
+            },
+            {
+                "label": "Build-up",
+                "tag": "[buildup]",
+                "desc": "점점 고조되는 구간"
+            },
+            {
+                "label": "Fade Out",
+                "tag": "[fade out]",
+                "desc": "서서히 작아지는 마무리"
+            },
+            {
+                "label": "Abrupt Stop",
+                "tag": "[stop]",
+                "desc": "갑작스러운 정지"
+            }
+        ]
+    },
+    "styles": [
+        {
+            "category": "Electronic (EDM)",
+            "items": [
+                {
+                    "name": "Berlin Techno",
+                    "prompt": "Berlin Techno, Minimal, Dark, Industrial, 135 BPM, Heavy kick, Underground club vibe, Cold, Hypnotic"
+                },
+                {
+                    "name": "Liquid DnB",
+                    "prompt": "Liquid Drum and Bass, Fast breakbeats, Soulful, Lush pads, Deep bass, Atmospheric, 175 BPM"
+                },
+                {
+                    "name": "Psytrance",
+                    "prompt": "Psytrance, Rolling bassline, Trippy effects, Alien synths, High energy, 145 BPM, Fractal soundscape"
+                },
+                {
+                    "name": "Deep House (Chic)",
+                    "prompt": "Deep House, Sophisticated, Fender Rhodes, Sub-bass, Smooth groove, 122 BPM, Sunset lounge vibe"
+                },
+                {
+                    "name": "Acid Techno",
+                    "prompt": "Acid Techno, Roland TB-303, Squelchy synths, Resonant filters, High energy, Rave, 90s style"
+                },
+                {
+                    "name": "Future Bass",
+                    "prompt": "Future Bass, Supersaw synths, Melodic, Emotional, Vocal chops, Powerful drums, Sparkling"
+                },
+                {
+                    "name": "Tropical House",
+                    "prompt": "Tropical House, Kygo style, Marimba synths, Flute, Summer vibe, Relaxed, 110 BPM"
+                },
+                {
+                    "name": "Eurodance 90s",
+                    "prompt": "Eurodance, 90s Pop, Fast synths, Female vocal hook, Male rap, High energy, Nostalgic, Casio sounds"
+                }
+            ]
+        },
+        {
+            "category": "Hip-Hop / Urban",
+            "items": [
+                {
+                    "name": "90s East Coast",
+                    "prompt": "90s East Coast Hip Hop, Boom bap, Jazzy, Soulful, Gritty, Vinyl texture, Raw, New York style"
+                },
+                {
+                    "name": "West Coast G-Funk",
+                    "prompt": "G-Funk, West Coast, Funky bassline, High-pitched synths, Laid back, 90s Hip Hop, Summery"
+                },
+                {
+                    "name": "Dark Trap",
+                    "prompt": "Dark Trap, Aggressive 808, Distorted, Ominous ambience, Fast hi-hats, Heavy reverb"
+                },
+                {
+                    "name": "UK Drill",
+                    "prompt": "UK Drill, Sliding 808 bass, Sharp snares, Dark piano loops, Gritty, Energetic flow"
+                },
+                {
+                    "name": "Lo-fi Hip Hop",
+                    "prompt": "Lo-fi Hip Hop, Mellow, Chill, Jazzy, Bitcrushed, Rainy day vibe, Study music, Nostalgic"
+                },
+                {
+                    "name": "Old School Disco Rap",
+                    "prompt": "Old School Hip Hop, Disco influence, Funky rhythm, Party vibe, 80s, Sugarhill Gang style"
+                },
+                {
+                    "name": "Jazz Hop",
+                    "prompt": "Jazz Hop, Nujabes style, Sophisticated piano, Jazzy horns, Boom bap drums, Ethereal, Calm"
+                }
+            ]
+        },
+        {
+            "category": "Rock / Metal",
+            "items": [
+                {
+                    "name": "Classic 70s Rock",
+                    "prompt": "70s Classic Rock, Analog warmth, Overdriven guitars, Hammond organ, Hard rock, Led Zeppelin style"
+                },
+                {
+                    "name": "90s Grunge",
+                    "prompt": "Grunge, 90s, Distorted guitars, Angst, Raw, Nirvana style, Dynamic soft-loud structure"
+                },
+                {
+                    "name": "Stadium Anthem",
+                    "prompt": "Stadium Rock, Epic, Powerful drums, Crowd cheering atmosphere, Catchy guitar riffs, 80s Pop Rock"
+                },
+                {
+                    "name": "Punk Rock (Fast)",
+                    "prompt": "Punk Rock, High energy, Simple chords, Aggressive, Fast tempo, Distorted, DIY vibe"
+                },
+                {
+                    "name": "Symphonic Metal",
+                    "prompt": "Symphonic Metal, Orchestral, Epic, Operatic female vocals, Heavy riffs, Dramatic, Cinematic"
+                },
+                {
+                    "name": "Shoegaze",
+                    "prompt": "Shoegaze, Wall of sound, Dreamy, Reverb-drenched guitars, Ethereal vocals, Fuzzy, Atmospheric"
+                },
+                {
+                    "name": "Post-Rock",
+                    "prompt": "Post-Rock, Instrumental, Crescendo, Dreamy, Cinematic, Delay-heavy guitars, Emotional buildup"
+                },
+                {
+                    "name": "Indie Pop Rock",
+                    "prompt": "Indie Rock, Jangle Pop, Bright guitars, Upbeat, Youthful, Catchy, Modern British style"
+                }
+            ]
+        },
+        {
+            "category": "Pop / R&B / Soul",
+            "items": [
+                {
+                    "name": "Modern K-Pop",
+                    "prompt": "K-Pop, High production value, Mixed genres, Catchy hook, Dynamic arrangement, Polished, Dance-pop"
+                },
+                {
+                    "name": "80s Synthpop",
+                    "prompt": "80s Synthpop, DX7 synths, LinnDrum, Catchy, Retro, Neon vibe, Electronic Pop"
+                },
+                {
+                    "name": "Neo-Soul / R&B",
+                    "prompt": "Neo Soul, Contemporary R&B, Jazzy, Soulful, Smooth, Rhodes, Laid back groove"
+                },
+                {
+                    "name": "Motown Soul",
+                    "prompt": "Motown, 60s Soul, Brass section, Tambourine, Gospel influence, Vintage, Warm"
+                },
+                {
+                    "name": "Contemporary Gospel",
+                    "prompt": "Gospel, Powerful choir, Piano driven, Soulful, Uplifting, Emotional, High energy"
+                },
+                {
+                    "name": "Funk (70s)",
+                    "prompt": "Funk, Slap bass, Wah-wah guitar, Horn section, Groovy, James Brown style"
+                },
+                {
+                    "name": "City Pop (Japanese)",
+                    "prompt": "Japanese City Pop, 80s, Sophisticated, Funky bass, Jazzy, Summery, Urban, Nostalgic"
+                }
+            ]
+        },
+        {
+            "category": "Jazz / Blues",
+            "items": [
+                {
+                    "name": "Midnight Bebop",
+                    "prompt": "Bebop Jazz, Fast tempo, Complex improvisation, Upright bass, Saxophone solo, Virtuosic"
+                },
+                {
+                    "name": "Bossa Nova",
+                    "prompt": "Bossa Nova, Brazilian Jazz, Nylon guitar, Soft vocals, Relaxing, Tropical, Gentle rhythm"
+                },
+                {
+                    "name": "Smooth Cocktail Jazz",
+                    "prompt": "Smooth Jazz, Relaxing, Piano, Soft brush drums, Lounge vibe, Elegant, Sophisticated"
+                },
+                {
+                    "name": "Delta Blues",
+                    "prompt": "Delta Blues, Resonator guitar, Raw, Slide guitar, Soulful, Gritty, Acoustic"
+                },
+                {
+                    "name": "Big Band Swing",
+                    "prompt": "Swing, Big Band, Large horn section, Energetic, Danceable, 1940s vibe, Frank Sinatra style"
+                }
+            ]
+        },
+        {
+            "category": "Classical / Cinematic",
+            "items": [
+                {
+                    "name": "Epic Trailer Orchestral",
+                    "prompt": "Epic Cinematic, Trailer music, Huge brass, Orchestral percussion, Dramatic, Heroic, Staccato strings"
+                },
+                {
+                    "name": "Dark Ambient",
+                    "prompt": "Dark Ambient, Ominous, Ethereal, Drone, Suspenseful, Atmospheric, Industrial texture"
+                },
+                {
+                    "name": "Modern Minimalism",
+                    "prompt": "Minimalist Classical, Repetitive patterns, Piano and Strings, Philip Glass style, Hypnotic, Pure"
+                },
+                {
+                    "name": "Baroque Harpsichord",
+                    "prompt": "Baroque, Harpsichord, Bach style, Intricate counterpoint, Classical, Royal"
+                },
+                {
+                    "name": "Gothic Opera",
+                    "prompt": "Gothic, Opera, Dramatic, Pipe organ, Dark, Haunting, Powerful soprano"
+                }
+            ]
+        },
+        {
+            "category": "Regional & Exotic",
+            "items": [
+                {
+                    "name": "Afrobeats",
+                    "prompt": "Afrobeats, Polyrhythmic drums, Catchy, Vibrant, African percussion, Modern production"
+                },
+                {
+                    "name": "Reggae / Dub",
+                    "prompt": "Reggae, Roots, Dub effects, Heavy bass, Skanking guitar, Island vibe, Relaxed"
+                },
+                {
+                    "name": "Flamenco Nuevo",
+                    "prompt": "Flamenco, Acoustic Spanish guitar, Clapping (Palmas), Passionate, Staccato rhythm"
+                },
+                {
+                    "name": "K-Trot",
+                    "prompt": "Korean Trot, Traditional Pop, Vibrato vocals, High energy, Catchy, Electronic arrangement"
+                },
+                {
+                    "name": "Celtic Folk",
+                    "prompt": "Celtic, Irish Folk, Fiddle, Tin whistle, Acoustic guitar, Storytelling vibe, Upbeat"
+                }
+            ]
+        },
+        {
+            "category": "Mood / Vibe Presets",
+            "items": [
+                {
+                    "name": "Nostalgic / Melancholic",
+                    "prompt": "Melancholic, Sad, Nostalgic, Ethereal, Lyrical, Emotional, Soft, Intimate"
+                },
+                {
+                    "name": "Cyberpunk / Industrial",
+                    "prompt": "Cyberpunk, Gritty, Synthesizers, Aggressive, Futuristic, Glitchy, Heavy"
+                },
+                {
+                    "name": "Dreamy / Ethereal",
+                    "prompt": "Dreamy, Ethereal, Atmospheric, Floating, Soft synths, Reverb, Magical"
+                },
+                {
+                    "name": "Angry / Aggressive",
+                    "prompt": "Aggressive, Angry, Intense, Heavy, Fast, Chaotic, Powerful"
+                },
+                {
+                    "name": "Uplifting / Happy",
+                    "prompt": "Uplifting, Positive, Energetic, Bright, Major key, Joyful, Catchy"
+                }
+            ]
+        }
+    ],
+    "tips": [
+        {
+            "title": "프롬프트 중요도 법칙",
+            "desc": "스타일 입력창에서 가장 앞에 오는 단어가 곡의 장르를 지배합니다. 가장 중요한 키워드를 왼쪽에 두세요."
+        },
+        {
+            "title": "괄호의 마법 (Echo/Backing)",
+            "desc": "가사에서 (단어) 처럼 소괄호를 사용하면 Udio는 이를 배경 코러스나 에코로 인식하여 풍성한 사운드를 만듭니다."
+        },
+        {
+            "title": "발음 절단 신공",
+            "desc": "AI가 특정 단어를 못 읽을 때는 [U-ti-li-za-tion] 처럼 하이픈으로 음절을 쪼개보세요."
+        },
+        {
+            "title": "악기 솔로 강제 지정",
+            "desc": "보컬이 나오지 않게 하려면 [Instrumental Solo] 태그를 쓰고 해당 세그먼트 가사란을 비워두거나 악기 묘사만 넣으세요."
+        },
+        {
+            "title": "BPM 수동 지정",
+            "desc": "스타일 창에 '128 BPM', 'Fast tempo' 등을 명시하면 곡의 속도를 더 정확하게 제어할 수 있습니다."
+        },
+        {
+            "title": "장르 혼합 (Hybrid)",
+            "desc": "서로 상반된 장르(예: K-Pop, Black Metal)를 쉼표로 섞으면 세상에 없던 독특한 결과물이 나옵니다."
+        }
+    ],
+    "templates": [
+        {
+            "name": "시티팝 감성 (Urban Retro)",
+            "content": "[Intro: Funky bass and synth pad]\n(Summer night, city lights)\n[Verse 1]\n빌딩 숲 사이로 부는 시원한 바람\n네온사인 아래 우리는 길을 잃어도 좋아\n[Chorus]\nFly away, 멈추지 않는 이 리듬 속에\n꿈결 같은 도시의 밤은 깊어만 가네\n[Outro: Saxophone solo fade out]"
+        },
+        {
+            "name": "정통 랩 벌스 (Boom Bap Flow)",
+            "content": "[Intro: Vinyl Crackle]\n[Verse 1: Gritty flow]\nYo, 비트 위의 항해사, 펜은 내 나침반\n가짜들은 가라, 이건 진짜들의 시간\n먼지 쌓인 LP판 위에 새겨진 내 이름\n심장을 울리는 킥, 베이스는 내 기름\n[Chorus: DJ Scratches]\n(Check the mic, one two)"
+        },
+        {
+            "name": "영화 오프닝 (Cinematic Narrative)",
+            "content": "[Intro: Grand Orchestral strings]\n[Spoken: Deep cinematic voice]\n그날 이후, 세상은 다시는 예전 같지 않았습니다.\n모든 기록은 사라졌고, 오직 이 음악만이 진실을 기억합니다.\n[Chorus: Ethereal Choir]\n(Gloria, In Excelsis...)\n[Instrumental Build-up]"
+        }
+    ]
+}

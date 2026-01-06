@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UDIO AI를 위한 전문 가사 생성 및 작업 가이드 도구. 태그 가이드, 프로팁, 템플릿 제공.">
+    <meta name="keywords" content="UDIO, AI Music, Lyric Generator, AI 가사, 우디오, 음악 생성">
+    <title>Udio Lyric Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body class="udio-theme">
+    <header class="app-header">
+        <div class="brand-container">
+            <img src="logo.png" alt="Udio Logo" class="brand-logo">
+            <div class="brand-text">
+                <h1>UDIO LYRIC <span class="highlight">GENERATOR</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <div id="app" class="app-container">
+        <!-- Sidebar: Tags & Guide -->
+        <aside class="sidebar left-pane">
+            <header class="pane-header">
+                <div class="tab-menu">
+                    <button class="tab-btn active" data-target="tag">태그</button>
+                    <button class="tab-btn" data-target="styles">스타일</button>
+                    <button class="tab-btn" data-target="tips">프로팁</button>
+                    <button class="tab-btn" data-target="templates">템플릿</button>
+                </div>
+            </header>
+            <div class="search-box">
+                <input type="text" id="tag-search" placeholder="태그, 스타일, 팁 검색...">
+            </div>
+            <div id="side-content" class="side-scroll-area">
+                <div id="tag-container" class="tab-content active">
+                    <!-- Tags injected here -->
+                </div>
+                <div id="styles-container" class="tab-content">
+                    <!-- Styles injected here -->
+                </div>
+                <div id="tips-container" class="tab-content">
+                    <!-- Pro tips injected here -->
+                </div>
+                <div id="templates-container" class="tab-content">
+                    <!-- Templates injected here -->
+                </div>
+            </div>
+            <div class="workflow-guide-box">
+                <h3><span class="pulse-icon"></span>우디오 작업 내비게이터</h3>
+                <p id="workflow-hint">곡의 첫 시작을 위해 '시작 세그먼트'를 작성하세요.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content: Lyric Editor -->
+        <main class="main-content center-pane">
+            <header class="pane-header">
+                <div class="segment-info">
+                    <span id="current-segment-label">Segment: Initial</span>
+                    <span id="line-counter">0 / 6 lines</span>
+                </div>
+                <div class="actions">
+                    <button id="btn-copy-lyrics" class="btn-primary">가사 복사</button>
+                </div>
+            </header>
+            <div class="editor-wrapper">
+                <textarea id="lyric-editor" placeholder="여기에 가사를 작성하세요... 우디오는 32초당 약 6줄 작성을 권장합니다."></textarea>
+            </div>
+            <div class="param-recommender">
+                <h3>우디오 권장 설정값 (Parameter) <span class="help-badge"
+                        title="우디오 하단 'Advanced Controls'에서 아래 수치대로 맞추시면 최적의 결과가 나옵니다.">?</span></h3>
+                <div class="p-grid">
+                    <div class="p-item">
+                        <span title="AI가 내 가사와 지시사항을 얼마나 엄격하게 따를지 결정합니다.">프롬프트 강도 <i class="info-icon">ⓘ</i></span>
+                        <strong id="rec-p-strength">50%</strong>
+                    </div>
+                    <div class="p-item">
+                        <span title="가사의 발음을 얼마나 또렷하게 할지 결정합니다. 확장 단계일수록 높은 값을 권장합니다.">가사 강도 <i
+                                class="info-icon">ⓘ</i></span>
+                        <strong id="rec-l-strength">50%</strong>
+                    </div>
+                    <div class="p-item">
+                        <span title="전체적인 사운드의 선명도입니다. 25~35%가 가장 자연스럽습니다.">선명도 (Clarity) <i
+                                class="info-icon">ⓘ</i></span>
+                        <strong id="rec-clarity">25%</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar: Segment Timeline -->
+        <aside class="sidebar right-pane">
+            <header class="pane-header">
+                <h2>곡 타임라인</h2>
+                <button id="btn-add-segment" class="btn-icon">+</button>
+            </header>
+            <div id="segment-timeline" class="timeline-list">
+                <!-- Segment cards will be injected by JS -->
+            </div>
+        </aside>
+    </div>
+    <footer class="app-footer">
+        <p>&copy; 2026 Udio Lyric Generator. Developed by Coulson. All rights reserved.</p>
+    </footer>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

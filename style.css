@@ -1,0 +1,548 @@
+:root {
+    /* Udio Inspired Color Palette */
+    --bg-deep: #0a0a0a;
+    --bg-pane: #121212;
+    --bg-card: #1e1e1e;
+    --text-main: #ffffff;
+    --text-dim: #999999;
+    --accent-pink: #ff3b5c;
+    --accent-teal: #00f2ea;
+    --border-color: #2a2a2a;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    height: 100vh;
+    /* 뷰포트 높이 고정 */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* 전체 페이지 스크롤 제거 */
+}
+
+/* Header */
+.app-header {
+    height: 80px;
+    background: var(--bg-pane);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    z-index: 1000;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 234, 0.3));
+}
+
+.brand-text h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.brand-text h1 .highlight {
+    color: var(--accent-teal);
+}
+
+/* Footer */
+.app-footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    z-index: 100;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-pink);
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 320px 1fr 280px;
+    height: calc(100vh - 40px - 80px);
+    /* 푸터 + 헤더 공간 제외 */
+    min-height: 0;
+}
+
+@media (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .right-pane {
+        grid-column: 1 / -1;
+        border-right: none;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .app-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        /* 고정 높이 해제 */
+    }
+
+    .sidebar,
+    .main-content {
+        height: auto;
+        /* 내용만큼 늘어남 */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .side-scroll-area,
+    .timeline-list {
+        max-height: 500px;
+        /* 내부 스크롤 허용 */
+    }
+
+    .app-footer {
+        font-size: 0.6rem;
+        /* 폰트 축소 */
+        padding: 0.8rem 0.5rem;
+        height: auto;
+        /* 줄바꿈 대응 */
+        min-height: 40px;
+        line-height: 1.4;
+    }
+}
+
+/* Common Pane Styles */
+.sidebar,
+.main-content {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    /* 부모 컨테이너(푸터 제외 영역)에 맞춤 */
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+
+    .sidebar,
+    .main-content {
+        height: auto;
+    }
+}
+
+.pane-header {
+    padding: 1rem 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--glass-bg);
+}
+
+h2,
+h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Left Sidebar Tabs & Search */
+.tab-menu {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--accent-pink);
+    border-bottom-color: var(--accent-pink);
+}
+
+.search-box {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#tag-search {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#tag-search:focus {
+    border-color: var(--accent-teal);
+}
+
+.side-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    min-height: 0;
+    /* 중요: flex 자식의 스크롤을 위해 필요 */
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Pro-tips & Templates styling */
+.tip-card,
+.template-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tip-card:hover,
+.template-card:hover {
+    border-color: var(--accent-teal);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tip-card h5,
+.template-card h5 {
+    color: var(--accent-teal);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.tip-card p,
+.template-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+.workflow-guide-box {
+    margin: 0.75rem 1rem 1rem 1rem;
+    /* 간격 최적화 */
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(255, 59, 92, 0.12), rgba(0, 242, 234, 0.08));
+    border: 1px solid rgba(255, 59, 92, 0.4);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    /* 하단 고정 느낌을 위한 그림자 */
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    /* 절대 줄어들지 않음 */
+    z-index: 10;
+}
+
+.workflow-guide-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-pink), var(--accent-teal));
+}
+
+.workflow-guide-box h3 {
+    color: var(--accent-pink);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.workflow-guide-box h3::before {
+    content: '●';
+    font-size: 0.6rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 8px var(--accent-pink);
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+#workflow-hint {
+    color: var(--text-main);
+    white-space: pre-wrap;
+    /* 줄 바꿈 허용 */
+}
+
+/* Center Content: Lyric Editor */
+.main-content {
+    background: var(--bg-pane);
+}
+
+.editor-wrapper {
+    flex: 1;
+    padding: 1rem 2rem;
+    /* 상하 패딩 축소 */
+    display: flex;
+    min-height: 0;
+    /* 남은 공간에 맞춤 */
+}
+
+#lyric-editor {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.3rem;
+    /* 폰트 약간 축소 */
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+    min-height: 0;
+    /* 강제 높이 제거 */
+}
+
+/* min-height: 200px; */
+/* 최소 높이 대폭 축소 */
+
+
+.param-recommender {
+    padding: 1rem 1.5rem;
+    /* 패딩 축소 */
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-card);
+    height: 140px;
+    /* 왼쪽 내비게이터 박스와 보기에 비슷하도록 높이 고정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.p-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.p-item span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    cursor: help;
+}
+
+.info-icon {
+    font-style: normal;
+    color: var(--accent-teal);
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.p-item strong {
+    color: var(--accent-teal);
+    font-size: 1.1rem;
+}
+
+.help-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-dim);
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    cursor: help;
+    vertical-align: middle;
+    margin-left: 4px;
+    transition: all 0.2s;
+}
+
+.help-badge:hover {
+    background: var(--accent-pink);
+    color: #fff;
+}
+
+/* Right Sidebar: Timeline */
+.timeline-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.segment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.segment-card:hover {
+    border-color: var(--accent-pink);
+    transform: translateX(-4px);
+}
+
+.segment-card.active {
+    background: linear-gradient(90deg, var(--bg-card), rgba(255, 59, 92, 0.05));
+    border-color: var(--accent-pink);
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.4rem;
+    /* 크기 약간 확대 */
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    padding: 8px 12px;
+    /* 클릭 영역 대폭 확대 */
+    margin: -8px -8px 0 0;
+    /* 패딩만큼 마진 조정하여 위치 유지 */
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-delete:hover {
+    background: rgba(255, 59, 92, 0.2);
+    color: var(--accent-pink);
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-pink);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-icon {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.segment-card {
+    animation: fadeIn 0.4s ease forwards;
+}
