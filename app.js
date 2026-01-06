@@ -30,6 +30,8 @@ class UdioGenerator {
         this.pStrength = document.getElementById('rec-p-strength');
         this.lStrength = document.getElementById('rec-l-strength');
         this.clarity = document.getElementById('rec-clarity');
+
+        this.toastContainer = document.getElementById('toast-container');
     }
 
     initApp() {
@@ -146,8 +148,12 @@ class UdioGenerator {
             navigator.clipboard.writeText(style.prompt).then(() => {
                 const p = card.querySelector('.prompt-text');
                 const original = p.innerText;
-                p.innerText = "복사 완료! 우디오 'Style' 창에 붙여넣으세요.";
-                setTimeout(() => p.innerText = original, 1200);
+                p.innerText = "✅ 복사 완료! 우디오 'Style' 창에 붙여넣으세요.";
+                p.style.color = "var(--accent-pink)"; // 강조 색상 변경
+                setTimeout(() => {
+                    p.innerText = original;
+                    p.style.color = ""; // 원상 복구
+                }, 2500);
             });
         };
         return card;
@@ -293,7 +299,21 @@ class UdioGenerator {
     }
 
     copyLyrics() {
-        navigator.clipboard.writeText(this.editor.value).then(() => alert('가사가 복사되었습니다!'));
+        navigator.clipboard.writeText(this.editor.value).then(() => {
+            this.showToast('가사가 클립보드에 복사되었습니다! ✨');
+        });
+    }
+
+    showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerText = message;
+        this.toastContainer.appendChild(toast);
+
+        // 애니메이션 종료 후 요소 제거 (3초 후)
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
     }
 }
 
