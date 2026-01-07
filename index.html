@@ -15,18 +15,18 @@
         rel="stylesheet">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="icon" type="image/png" href="logo.png">
-    <!-- AdSense Loader: 로컬 ads-config.js가 있을 때만 로드됨 -->
+    <!-- AdSense Loader -->
     <script src="ads-config.js"></script>
     <script>
-        window.addEventListener('load', function () {
+        (function () {
             if (typeof ADSENSE_CONFIG !== 'undefined') {
-                var adsenseScript = document.createElement('script');
-                adsenseScript.async = true;
-                adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADSENSE_CONFIG.client;
-                adsenseScript.crossOrigin = "anonymous";
-                document.head.appendChild(adsenseScript);
+                var adsScript = document.createElement('script');
+                adsScript.async = true;
+                adsScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + ADSENSE_CONFIG.client;
+                adsScript.crossOrigin = "anonymous";
+                document.head.appendChild(adsScript);
             }
-        });
+        })();
     </script>
 </head>
 
@@ -92,13 +92,14 @@
             <!-- 광고 영역: 중앙 에디터와 설정값 사이 -->
             <div class="main-ad-area" id="main-ad-container">
                 <script>
-                    window.addEventListener('load', function () {
+                    (function () {
                         if (typeof ADSENSE_CONFIG !== 'undefined') {
                             var container = document.getElementById('main-ad-container');
-                            container.style.display = 'flex'; // 설정이 있을 때만 화면에 표시
+                            container.style.display = 'flex';
                             var ins = document.createElement('ins');
                             ins.className = "adsbygoogle";
                             ins.style.display = "block";
+                            ins.style.width = "100%";
                             ins.setAttribute('data-ad-client', ADSENSE_CONFIG.client);
                             ins.setAttribute('data-ad-slot', ADSENSE_CONFIG.slot);
                             ins.setAttribute('data-ad-format', 'horizontal');
@@ -106,7 +107,7 @@
                             container.appendChild(ins);
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         }
-                    });
+                    })();
                 </script>
             </div>
 

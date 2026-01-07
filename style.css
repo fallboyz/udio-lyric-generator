@@ -729,17 +729,14 @@ h3 {
 /* 중앙 광고 영역 스타일 */
 .main-ad-area {
     margin: 0.5rem 2rem;
-    padding: 0.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    min-height: 90px;
+    padding: 0;
     display: none;
     /* 기본적으로 숨김 (설정이 있을 때만 표시) */
     align-items: center;
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
+    min-height: 90px;
 }
 
 @media (max-width: 768px) {
