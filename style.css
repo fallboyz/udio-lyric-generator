@@ -737,6 +737,10 @@ h3 {
     overflow: hidden;
     flex-shrink: 0;
     min-height: 90px;
+    background: transparent;
+    /* Added for transparency */
+    border: none;
+    /* Added to remove border */
 }
 
 @media (max-width: 768px) {

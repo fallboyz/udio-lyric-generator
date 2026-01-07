@@ -89,27 +89,8 @@
                 <textarea id="lyric-editor" placeholder="여기에 가사를 작성하세요... 우디오는 32초당 약 6줄 작성을 권장합니다."></textarea>
             </div>
 
-            <!-- 광고 영역: 중앙 에디터와 설정값 사이 -->
-            <div class="main-ad-area" id="main-ad-container">
-                <script>
-                    (function () {
-                        if (typeof ADSENSE_CONFIG !== 'undefined') {
-                            var container = document.getElementById('main-ad-container');
-                            container.style.display = 'flex';
-                            var ins = document.createElement('ins');
-                            ins.className = "adsbygoogle";
-                            ins.style.display = "block";
-                            ins.style.width = "100%";
-                            ins.setAttribute('data-ad-client', ADSENSE_CONFIG.client);
-                            ins.setAttribute('data-ad-slot', ADSENSE_CONFIG.slot);
-                            ins.setAttribute('data-ad-format', 'horizontal');
-                            ins.setAttribute('data-full-width-responsive', 'true');
-                            container.appendChild(ins);
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        }
-                    })();
-                </script>
-            </div>
+            <!-- 광고 영역: 중앙 에디터와 설정값 사이 (app.js에서 동적 로드) -->
+            <div class="main-ad-area" id="main-ad-container"></div>
 
             <div class="param-recommender">
                 <h3>우디오 권장 설정값 (Parameter) <span class="help-badge"
