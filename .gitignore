@@ -1,0 +1,7 @@
+# Adsense Config
+ads-config.js
+
+# Other system files
+.DS_Store
+node_modules/
+.env

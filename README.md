@@ -30,7 +30,21 @@ This project is a static web page that runs directly in your browser with no ins
 2. Open the `index.html` file in your browser.
 3. Write your lyrics, apply tags, and design your music.
 
-## 📄 License
+## � AdSense Integration (Optional)
+
+To support maintenance costs, this project includes a security-focused AdSense integration.
+
+1. Create a file named `ads-config.js` in the root directory.
+2. Add your AdSense IDs:
+   ```javascript
+   const ADSENSE_CONFIG = {
+       client: "ca-pub-xxxxxxxxxxxxxxxx",
+       slot: "xxxxxxxxxx"
+   };
+   ```
+3. The `.gitignore` is pre-configured to keep this file private and prevent it from being pushed to GitHub.
+
+## �📄 License
 
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and distribute it.
@@ -70,6 +84,20 @@ You are free to use, modify, and distribute it.
 1. 이 저장소를 클론하거나 다운로드합니다.
 2. `index.html` 파일을 브라우저로 엽니다.
 3. 가사를 작성하고 태그를 활용하여 음악을 설계합니다.
+
+## 💰 애드센스 연동 (선택 사항)
+
+프로젝트 유지 관리를 위해 보안을 고려한 애드센스 연동 기능을 제공합니다.
+
+1. 루트 디렉토리에 `ads-config.js` 파일을 생성합니다.
+2. 본인의 애드센스 정보를 입력합니다:
+   ```javascript
+   const ADSENSE_CONFIG = {
+       client: "ca-pub-xxxxxxxxxxxxxxxx",
+       slot: "xxxxxxxxxx"
+   };
+   ```
+3. `.gitignore` 설정을 통해 해당 파일은 GitHub에 업로드되지 않으므로 개인 정보를 안전하게 보호할 수 있습니다.
 
 ## 📄 라이선스
 
