@@ -109,52 +109,96 @@ body {
 
 @media (max-width: 1024px) {
     .app-container {
-        grid-template-columns: 300px 1fr;
-        grid-template-rows: auto auto;
+        grid-template-columns: 280px 1fr;
+        grid-template-rows: 1fr;
+        height: auto;
+        min-height: calc(100dvh - 120px);
+    }
+
+    body {
+        height: auto;
+        overflow-y: auto;
     }
 
     .right-pane {
         grid-column: 1 / -1;
         border-right: none;
         border-top: 1px solid var(--border-color);
+        height: auto;
+        max-height: 400px;
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        height: auto;
-        overflow-y: auto;
+    .app-header {
+        height: 60px;
+        padding: 0 1rem;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-text h1 {
+        font-size: 1rem;
     }
 
     .app-container {
         display: flex;
         flex-direction: column;
         height: auto;
-        /* 고정 높이 해제 */
+        min-height: 0;
+    }
+
+    .main-content {
+        order: -1;
+        /* 에디터를 최상단으로 */
+        border-bottom: 1px solid var(--border-color);
     }
 
     .sidebar,
     .main-content {
         height: auto;
-        /* 내용만큼 늘어남 */
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
+        flex: none;
+        overflow: visible;
     }
 
     .side-scroll-area,
     .timeline-list {
-        max-height: 500px;
-        /* 내부 스크롤 허용 */
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .editor-wrapper {
+        padding: 1rem;
+        min-height: 250px;
+    }
+
+    #lyric-editor {
+        font-size: 1.1rem;
+    }
+
+    .param-recommender {
+        height: auto;
+        padding: 1.25rem 1rem;
+    }
+
+    .p-grid {
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .p-item {
+        flex: 1;
+        min-width: 80px;
     }
 
     .app-footer {
-        font-size: 0.6rem;
-        /* 폰트 축소 */
-        padding: 0.8rem 0.5rem;
+        font-size: 0.65rem;
+        padding: 1rem;
         height: auto;
-        /* 줄바꿈 대응 */
-        min-height: 40px;
-        line-height: 1.4;
+        text-align: center;
     }
 }
 
@@ -201,6 +245,14 @@ h3 {
     display: flex;
     gap: 8px;
     width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.tab-menu::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .tab-btn {
@@ -220,6 +272,12 @@ h3 {
 .tab-btn.active {
     color: var(--accent-pink);
     border-bottom-color: var(--accent-pink);
+}
+
+@media (max-width: 480px) {
+    .tab-btn {
+        font-size: 0.8rem;
+    }
 }
 
 .search-box {
@@ -473,7 +531,12 @@ h3 {
 
 .segment-card:hover {
     border-color: var(--accent-pink);
-    transform: translateX(-4px);
+}
+
+@media (hover: hover) {
+    .segment-card:hover {
+        transform: translateX(-4px);
+    }
 }
 
 .segment-card.active {
@@ -594,5 +657,71 @@ h3 {
     to {
         transform: translateY(-20px);
         opacity: 0;
+    }
+}
+
+/* Recommendation & Tag List Styles */
+.recommendation-area {
+    background: rgba(0, 242, 234, 0.05);
+    border: 1px dashed var(--accent-teal);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.recommended {
+    border: 1px solid var(--accent-teal) !important;
+    box-shadow: 0 0 10px rgba(0, 242, 234, 0.2);
+}
+
+.match-badge {
+    background: var(--accent-teal);
+    color: black;
+    font-size: 0.6rem;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.prompt-text {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-teal);
+}
+
+.tag-category h4 {
+    margin: 1.5rem 0 0.5rem;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tag-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tag-pill:hover {
+    background: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+
+@media (max-width: 768px) {
+    .tag-pill {
+        padding: 10px 16px;
+        font-size: 0.9rem;
     }
 }

@@ -251,6 +251,12 @@ class UdioGenerator {
         this.updateUI();
         this.renderTimeline();
         this.analyzeLyrics(activeSeg.lyrics);
+
+        // 모바일 대응: 세그먼트 전환 시 에디터로 스크롤
+        if (window.innerWidth <= 768) {
+            this.editor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => this.editor.focus(), 500);
+        }
     }
 
     addSegment() {
@@ -262,10 +268,21 @@ class UdioGenerator {
 
     insertTag(tag) {
         const start = this.editor.selectionStart;
+        const end = this.editor.selectionEnd;
         const text = this.editor.value;
-        this.editor.value = text.substring(0, start) + tag + "\n" + text.substring(start);
+        this.editor.value = text.substring(0, start) + tag + "\n" + text.substring(end);
+
+        // 커서 위치 조정
+        const newCursorPos = start + tag.length + 1;
+        this.editor.setSelectionRange(newCursorPos, newCursorPos);
+
         this.editor.focus();
         this.editor.dispatchEvent(new Event('input'));
+
+        // 모바일 보정: 태그 삽입 후 에디터가 화면에서 벗어나지 않게 처리
+        if (window.innerWidth <= 768) {
+            this.editor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     }
 
     updateUI() {
@@ -316,19 +333,5 @@ class UdioGenerator {
         }, 3000);
     }
 }
-
-// Global Style Updates
-const style = document.createElement('style');
-style.textContent = `
-    .recommendation-area { background: rgba(0, 242, 234, 0.05); border: 1px dashed var(--accent-teal); padding: 10px; border-radius: 8px; margin-bottom: 20px; }
-    .recommended { border: 1px solid var(--accent-teal) !important; box-shadow: 0 0 10px rgba(0, 242, 234, 0.2); }
-    .match-badge { background: var(--accent-teal); color: black; font-size: 0.6rem; padding: 2px 4px; border-radius: 3px; font-weight: bold; vertical-align: middle; }
-    .prompt-text { font-family: 'Inconsolata', monospace; font-size: 0.75rem; color: var(--accent-teal); }
-    .tag-category h4 { margin: 1.5rem 0 0.5rem; color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag-pill { background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: var(--text-main); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; transition: 0.2s; }
-    .tag-pill:hover { background: var(--accent-pink); border-color: var(--accent-pink); }
-`;
-document.head.appendChild(style);
 
 window.onload = () => { window.app = new UdioGenerator(); };
