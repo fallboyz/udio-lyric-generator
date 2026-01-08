@@ -736,7 +736,7 @@ h3 {
     justify-content: center;
     overflow: hidden;
     flex-shrink: 0;
-    min-height: 90px;
+    /* min-height 제거: 광고 로드 실패 시 공간 차지 방지 */
     background: transparent;
     /* Added for transparency */
     border: none;
@@ -746,7 +746,6 @@ h3 {
 @media (max-width: 768px) {
     .main-ad-area {
         margin: 0.5rem 1rem;
-        min-height: 50px;
         /* 모바일에서는 높이 축소 */
     }
 }
