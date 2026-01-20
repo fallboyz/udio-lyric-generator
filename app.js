@@ -342,6 +342,9 @@ class UdioGenerator {
 
             // 앱 렌더링이 끝난 후 약간의 지연을 두어 자연스럽게 표시
             setTimeout(() => {
+                // 중요: 광고를 요청하기 전에 컨테이너를 먼저 보여야 공간(width)이 잡혀서 에러가 안 남
+                container.style.display = 'block';
+
                 const ins = document.createElement('ins');
                 ins.className = "adsbygoogle";
                 ins.style.display = "block";
@@ -360,13 +363,13 @@ class UdioGenerator {
                     let checkCount = 0;
                     const checkInterval = setInterval(() => {
                         if (ins.clientHeight > 0) {
-                            container.style.display = 'flex';
+                            // container.style.display = 'flex'; // 이미 위에서 보이게 했으므로 주석 처리
                             clearInterval(checkInterval);
                         }
                         checkCount++;
-                        if (checkCount > 20) { // 2초 후에도 높이가 없으면 차단된 것으로 간주
+                        if (checkCount > 20) { // 2초 후에도 높이가 없으면 체크 중단 (숨기지는 않음)
                             clearInterval(checkInterval);
-                            container.style.display = 'none';
+                            // container.style.display = 'none'; // 늦게 뜨더라도 공간 유지
                         }
                     }, 100);
                 } catch (e) {
